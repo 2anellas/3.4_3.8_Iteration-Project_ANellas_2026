@@ -1,0 +1,137 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['login_user'])) {
+		header("location:01_login_v2.php");
+	}
+	else {
+		$User = $_SESSION['login_user'];
+	}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+			
+		<title>Graeme's Music: Login Page</title>
+		
+		<!-- Meta Data -->
+		<meta charset="utf-8">
+		
+		<!-- Compatible with Microsoft Edge Browser -->
+		<meta http-equipv="X-UA-Compatible" content="IE=edge">
+		
+		<!-- Needed for Website to be Responsive -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Keywords for Search Engine -->
+		<meta name="Keywords" content="Music, Genres, Albums"/>
+		<meta name="Author" content="Ana Nellas"/>
+		<meta name="Description" content="Login Page for Graeme's Music"/>
+		
+		<!-- css Stylesheet -->
+		<link rel="stylesheet" href="css/style_v2.css">
+		
+		<!-- Icons -->
+		<script src="https://kit.fontawesome.com/9f28203115.js" crossorigin="anonymous"></script>
+		
+		<!-- Javascript File -->
+		<script src="js/script.js" defer></script>
+			
+	</head>
+	
+	<body>
+		
+		<!-- Holds website together -->
+		<div class="grid-container">
+			
+			<!-- Navigation Bar -->
+			<div class="nav">
+				
+				<!-- Left Side -->
+				<h1 class="fa-solid fa-bars burger" id="burger"></h1>
+				
+				<ul class="nav-links nav-links-left" id="navLinksLeft">
+					<li><a href="index_v2.php">Home</a></li>
+					<li><a href="playlist1_v2.php">Playlist 1</a></li>
+					<li><a href="playlist2_v1.php">Playlist 2</a></li>
+					<li><a href="contact_v2.php">Contact</a></li>
+    			</ul>
+				
+				
+				<!-- Right Side -->
+				<h1 class="fa-solid fa-circle-user" id="userControls"></h1>
+				
+				<ul class="nav-links nav-links-right" id="navLinksRight">
+					<li><a href="01_login_v2.php">Log Out</a></li>
+					
+					<?php
+						if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) {
+					?>
+					
+						<li><a href="02_add_user_v1.php">Add User</a></li>
+						<li><a href="03_update_password_v1.php">Update Password</a></li>
+						<li><a href="04_delete_user_v1.php">Delete User</a></li>
+					<?php
+						}
+					?>
+					
+				</ul>
+			
+			</div>
+			
+			<div class="header">
+			
+				<img src="images/Screen Shot 2026-08-07 at 6.00.42 PM.png"/>
+			
+			</div>
+			
+			<div class="content">
+			
+				<div class="contact-flex">
+					
+					<div class="message-box">
+
+						<h1>Disclaimer Message</h1>
+
+					</div>
+					
+					<!-- Contact Form -->
+					<div class="contact-box">
+
+						<form action="connect.php" method="post" id="contact_form">
+							
+							<h4><label for="name">Name:</label></h4>
+                        	<input input type="text" id="name" name="name" placeholder="Your full name"/><br/><br/>
+						
+                        	<h4><label for="email">Email:</label></h4>
+                        	<input type="text" id="email" name="email" placeholder="Your email address"/><br/><br/>
+							
+							<h4><label for="message">Message:</label></h4>
+							<textarea id="body" name="message" placeholder="Write something..."></textarea>
+							
+							<input type="submit" value="Submit">
+							
+						</form>
+
+					</div>
+					
+				</div>
+			
+			</div>
+			
+			<!-- Footer Space -->
+			<div class="footer">
+			
+				<h5>&copy; Copyright ANellas Tawa College All Rights Reserved 2025</h5>
+			
+			</div>
+			
+		</div>
+		
+		<!-- nav javascript -->
+		<script src="js/nav_v2.js"></script>
+		
+	</body>
+	
+</html>

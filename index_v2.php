@@ -1,3 +1,14 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['login_user'])) {
+		header("location:01_login_v2.php");
+	}
+	else {
+		$User = $_SESSION['login_user'];
+	}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	
@@ -20,7 +31,7 @@
 		<meta name="Description" content="Graeme's Music"/>
 		
 		<!-- css Stylesheet -->
-		<link rel="stylesheet" href="css/style_v1.css">
+		<link rel="stylesheet" href="css/style_v2.css">
 		
 		<!-- Icons -->
 		<script src="https://kit.fontawesome.com/9f28203115.js" crossorigin="anonymous"></script>
@@ -32,46 +43,69 @@
 	
 	<body>
 		
+		<!-- Holds website together -->
 		<div class="grid-container">
 			
+			<!-- Navigation Bar -->
 			<div class="nav">
 				
 				<!-- Left Side -->
 				<h1 class="fa-solid fa-bars burger" id="burger"></h1>
-				<ul class="nav-links" id="navLinksLeft">
-					<li><a href="index_v1.php">Home</a></li>
-					<li><a href="playlist1_v1.php">Playlist 1</a></li>
-					<li><a href="">Playlist 2</a></li>
-					<li><a href="contact_v1.php">Contact</a></li>
-					<li><a href="01_login_v1.php">Log Out</a></li>
+				
+				<ul class="nav-links nav-links-left" id="navLinksLeft">
+					<li><a href="index_v2.php">Home</a></li>
+					<li><a href="playlist1_v2.php">Playlist 1</a></li>
+					<li><a href="playlist2_v1.php">Playlist 2</a></li>
+					<li><a href="contact_v2.php">Contact</a></li>
     			</ul>
 				
 				
 				<!-- Right Side -->
-				<h1 class="fa-solid fa-circle-user" id="controls"></h1>
+				<h1 class="fa-solid fa-circle-user" id="userControls"></h1>
+				
+				<ul class="nav-links nav-links-right" id="navLinksRight">
+					<li><a href="01_login_v2.php">Log Out</a></li>
+					
+					<?php
+						if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) {
+					?>
+					
+						<li><a href="02_add_user_v1.php">Add User</a></li>
+						<li><a href="03_update_password_v1.php">Update Password</a></li>
+						<li><a href="04_delete_user_v1.php">Delete User</a></li>
+					<?php
+						}
+					?>
+					
+				</ul>
 			
 			</div>
 			
+			<!-- Website Header -->
 			<div class="header">
 			
 				<img src="images/Screen Shot 2026-08-07 at 6.00.42 PM.png"/>
 			
 			</div>
 			
+			<!-- Main Content for Home Page -->
 			<div class="content">
 				
+				<!-- Welcome Section -->
 				<div class="panel panel-1">
 				
 					<h1>Welcome Section</h1>
 				
 				</div>
 				
+				<!-- Album Carousel -->
 				<div class="panel panel-2">
 				
 					<h1>Album Carousel</h1>
 				
 				</div>
 				
+				<!-- Accordion and Video -->
 				<div class="panel panel-3">
 				
 					<h1>Accordion and Video</h1>
@@ -81,6 +115,7 @@
 				
 			</div>
 			
+			<!-- Footer Space -->
 			<div class="footer">
 			
 				<h5>&copy; Copyright ANellas Tawa College All Rights Reserved 2025</h5>
@@ -90,7 +125,7 @@
 		</div>
 		
 		<!-- nav javascript -->
-		<script src="js/nav_v1.js"></script>
+		<script src="js/nav_v2.js"></script>
 		
 	</body>
 	
