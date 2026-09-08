@@ -99,7 +99,7 @@
 					<!-- Contact Form -->
 					<div class="contact-box">
 
-						<form action="connect.php" method="post" id="contact_form">
+						<form action="connect_v1.php" method="post" id="contact_form">
 							
 							<h4><label for="name">Name:</label></h4>
                         	<input input type="text" id="name" name="name" placeholder="Your full name"/><br/><br/>
