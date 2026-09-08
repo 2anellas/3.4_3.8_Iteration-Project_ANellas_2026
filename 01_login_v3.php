@@ -27,7 +27,7 @@
         			$_SESSION['admin'] = false;
     				}
 
-    			header("location:index_v2.php");
+    			header("location:index_v3.php");
 			} else {
     			$error = "Error Invalid Username or Password";
 			}
@@ -58,7 +58,7 @@
 		<meta name="Description" content="Login Page for Graeme's Music"/>
 		
 		<!-- css Stylesheet -->
-		<link rel="stylesheet" href="css/style_v2.css">
+		<link rel="stylesheet" href="css/style_v3.css">
 		
 		<!-- Icons -->
 		<script src="https://kit.fontawesome.com/9f28203115.js" crossorigin="anonymous"></script>
@@ -79,7 +79,7 @@
 				<h1 class="fa-solid fa-bars burger" id="burger"></h1>
 				
 				<ul class="nav-links nav-links-left" id="navLinksLeft">
-      				<li><a href="01_login_v1.php">Login</a></li>
+      				<li><a href="01_login_v3.php">Login</a></li>
     			</ul>
 			
 			</div>
@@ -90,7 +90,7 @@
 			
 			</div>
 			
-			<div class="content">
+			<div class="content content-bg">
 				
 				<div class="admin">
 				

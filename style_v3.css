@@ -2,6 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
 
+/*********** RESPONSIVE FONT SIZE VARIABLES **********/
+:root {
+	--h1: clamp(2.5rem, 5vw, 4rem);
+	--h2 : clamp(1.6rem, 2.5vw, 2rem);
+	--p: clamp(0.75rem, 1vw ,1rem);
+}
+
+
 /*********** GRID CONTAINER **********/
 .grid-container {
 	display: grid;
@@ -35,6 +43,17 @@
 	align-items: center;
 	padding: 10px 20px;
 	position: relative;
+}
+
+.fa {
+	font-size: 14px;
+	border-radius: 15px;
+	padding: 5px;
+	margin: -2px;
+	margin-right: 10px;
+	text-align: center;
+	color: #4d0548;
+	background-color: white;
 }
 
 
@@ -110,7 +129,7 @@
 /*********** CONTENT **********/
 .content {
 	box-sizing: border-box;
-	background-color: #8f2587; /* change colour once proper header image is added */
+	background-color: #8f2587; 
 	position: relative;
 	grid-column-end: span 2;       
 }
@@ -125,21 +144,24 @@
 }
 
 .content h1 {
-	display: block;
-	text-align: center;
-	font-size: 4rem;
+	font-size: var(--h1);
 	color: white;
 	font-family: "Google Sans", sans-serif;
-	margin-top: 50px;
+	text-align: center;
 }
 
+
 .content h2 {
-	display: block;
-	text-align: center;
 	font-size: 1rem;
 	color: white;
 	font-family: "Google Sans", sans-serif;
-	font-weight: normal;
+}
+
+.content-bg {
+	background-image: url("../images/Background.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 /*********** ADMIN FORMS **********/
@@ -322,11 +344,264 @@ form[id="04_delete_user"] input[type="submit"] {
 
 /*********** CONTENT: HOME PAGE **********/
 .panel {
-	padding: 20px;
+	padding: 120px;
 }
 
 .panel-2 {
 	background-color: #4d0548;
+}
+
+.panel h1 {
+	text-align: left;
+	font-family: "Google Sans", sans-serif;
+	font-size: var(--h1);
+}
+
+.panel h2 {
+	text-align: left;
+	font-size: var(--h2);
+	font-weight: bold;
+}
+
+.panel p {
+	color: white;
+	font-family: "Google Sans", sans-serif;
+	font-size: var(--p);
+}
+
+.panel-2 p {
+	margin-top: 20px;
+	text-align: center;
+}
+
+
+.panel-1, .panel-3 {
+	display: flex;
+  	justify-content: space-between; 
+  	align-items: stretch; /* align tops */
+}
+
+.text, .video {
+	flex: 1;
+}
+
+.image, .accordion-container {
+	flex: 1;
+	margin-left: 50px;
+}
+
+
+/*** Media Query for Tablet Size ***/
+@media (max-width: 768px) {
+	.panel-1, .panel-3 {
+    	flex-direction: column;
+    	align-items: center;
+  }
+
+  	.text, .image, .video, .accordion-container {
+    	max-width: 90%;
+    	width: 90%;
+	  	margin: 20px;
+  }
+	.panel {
+		padding: 20px;
+	}
+	
+	.panel h1, .panel h2 {
+		text-align: center;
+	}
+	
+
+}
+
+.fa-star {
+	font-size: clamp(2rem, 5vw, 2.75rem);
+	border-radius: 100px;
+	padding: 10px;
+	margin: 0px;
+	margin-right: 10px;
+}
+
+.image img {
+	max-width: 100%;
+	height: auto;
+	width: 100%;
+}
+
+
+/*********** HOME PAGE IMAGE CAROUSEL **********/
+
+.album-carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+	background-color: #8f2587;;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/* Individual albums */
+
+.album-card {
+    display: none;
+    text-align: center;
+    width: 100%;
+	margin-top: 20px;
+}
+
+.album-card.active {
+    display: block;
+}
+
+
+/* Album cover */
+
+.album-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Album information */
+
+.album-info h3 {
+    margin: 15px 0 5px;
+	color: white;
+	font-family: "Google Sans", sans-serif;
+}
+
+.album-info p {
+    margin: 0;
+}
+
+
+/* Arrow buttons */
+
+.album-carousel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    padding: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+	border: none;
+	outline: none;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.album-carousel-btn:hover {
+    background-color: #ab3cc7;
+}
+
+.album-prev {
+    left: 30%;
+}
+
+.album-next {
+    right: 30%;
+}
+
+.fa-arrow-right, .fa-arrow-left {
+	background-color: transparent;
+	color: #4d0548;
+	font-size: var(--h2);
+	margin-right: 2px;
+}
+
+.video iframe {
+	width: 100%;
+	height: auto;
+	max-height: 100%;
+	aspect-ratio: 16/9;
+	max-width: 100%;
+}
+
+
+/*********** RESPONSIVE DESIGN ***********/
+
+@media (max-width: 600px) {
+
+    .album-carousel-window {
+        width: 70%;
+    }
+
+    .album-carousel-btn {
+        padding: 8px 11px;
+        font-size: 18px;
+    }
+
+    .album-prev {
+        left: 2%;
+    }
+
+    .album-next {
+        right: 2%;
+    }
+
+}
+
+
+/*********** HOME PAGE ACCORDION TEXT **********/
+.accordion-item {
+	margin-bottom: 10px;
+}
+
+.accordion {
+	background-color: #4d0548;
+	color: white;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.activeAccordion, .accordion:hover {
+	background-color: #ab3cc7;
+}
+
+.section {
+	padding: 0 18px;
+	background-color: white;
+	display: none;
+	overflow: hidden;
+	
+	/* for animation */
+	max-height: 0;
+	transition: max-height 0.2s ease out;
+}
+
+.accordion:after {
+	content: "+";
+	color: white;
+	font-size: 13px;
+	float: right;
+	margin-left: 5px;
+}
+
+.activeAccordion:after {
+	content: "-"; 
+}
+
+.section p {
+	color: black;
+	margin: 15px;
+}
+
+.section ul {
+	font-family: "Google Sans", sans-serif;
+	font-size: var(--p);
 }
 
 /*********** CONTENT: PLAYLIST PAGE ***********/
@@ -345,6 +620,17 @@ form[id="04_delete_user"] input[type="submit"] {
 
 .query-box h2 {
 	margin-top: -20px;
+	font-size: var(--h2);
+	font-weight: normal;
+	text-align: center;
+}
+
+.playlist-headphones {
+	font-size: clamp(2rem, 5vw, 2.75rem);
+	border-radius: 100px;
+	padding: 10px;
+	margin: 0px;
+	margin-right: 10px;
 }
 
 /*********** FIELD NAME DIVS ***********/
@@ -507,7 +793,7 @@ form[id="contact_form"] input[type="text"] {
 
 form[id="contact_form"] textarea {
 	width: 100%;
-    height: 300px;
+    height: 100px;
     box-sizing: border-box;
     padding: 10px;
     border: none;
@@ -528,6 +814,26 @@ form[id="contact_form"] input[type="submit"] {
     cursor: pointer;
 }
 
+.bold {
+	font-weight: bold;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.message-box p {
+	color: white;
+	font-family: "Google Sans", sans-serif;
+	font-size: var(--p);
+	margin: 50px;
+	margin-top: 0px;
+}
+
+.message-box hr {
+	margin: 50px;
+}
+
 /*********** FOOTER **********/
 .footer {
 	background-color: #4d0548;
@@ -541,6 +847,35 @@ form[id="contact_form"] input[type="submit"] {
 	font-size: 12px;
 	color: white;
 	text-align: center;
-	padding-top: 90px;
+	padding-top: 80px;
 }
 
+/*********** BACK TO TOP BUTTON **********/
+#myBtn {
+  	display: none; /* Hidden by default */
+  	position: fixed; /* Fixed/sticky position */
+  	bottom: 20px; /* Place the button at the bottom of the page */
+  	right: 30px; /* Place the button 30px from the right */
+  	z-index: 99; /* Make sure it does not overlap */
+  	border: none; /* Remove borders */
+  	outline: none; /* Remove outline */
+  	background-color: black; /* Set a background color */
+  	color: white; /* Text color */
+  	cursor: pointer; /* Add a mouse pointer on hover */
+  	padding: 15px; /* Some padding */
+  	border-radius: 10px; /* Rounded corners */
+  	font-size: 18px; /* Increase font size */
+  	font-family: 'Rubik', sans-serif;
+	opacity: 0.7;
+}
+
+.fa-arrow-up {
+	background-color: transparent;
+	margin: -2px;
+	color: white;
+}
+
+#myBtn:hover {
+  	background-color: #ab3cc7; 
+	opacity: 100%;
+}
