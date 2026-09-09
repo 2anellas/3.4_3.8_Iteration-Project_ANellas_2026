@@ -38,6 +38,9 @@
 		
 		<!-- Javascript File -->
 		<script src="js/accordion.js" defer></script>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="images/music-notes.png">
 			
 	</head>
 	
