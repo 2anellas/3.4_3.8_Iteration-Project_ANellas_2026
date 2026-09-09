@@ -65,6 +65,9 @@
 		
 		<!-- Javascript File -->
 		<script src="js/script.js" defer></script>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="images/music-notes.png">
 			
 	</head>
 	
